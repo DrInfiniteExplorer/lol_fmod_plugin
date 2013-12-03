@@ -68,8 +68,8 @@ int main(int argc, char *argv[])
     int soundNum = 0;
     try {
         //auto soundPath = "LoL_SFX_nasus_base.fsb";
-        auto soundPath = "LoL_SFX_ziggs.fsb";
-        //auto soundPath = "VOBank_en_US.fsb";        
+        //auto soundPath = "LoL_SFX_ziggs.fsb";
+        auto soundPath = "VOBank_en_US.fsb";        
         result = system->createSound(soundPath, mode, nullptr, &sound);
         //result = system->createStream(soundPath, mode, nullptr, &sound);
         ERRCHECK(result);
@@ -95,7 +95,7 @@ int main(int argc, char *argv[])
             std::cout << name;
         }
 
-        soundNum = min(numsubsounds / 2, 1000);
+        soundNum = min(numsubsounds / 2, 1070);
         result = sound->getSubSound(soundNum, &subsound);
         ERRCHECK(result);
         result = subsound->getName(name, 256);
@@ -164,7 +164,7 @@ int main(int argc, char *argv[])
 
         Sleep(20);
 
-    } while (!GetAsyncKeyState(VK_ESCAPE));
+    } while (!GetAsyncKeyState(VK_ESCAPE) && !GetAsyncKeyState(VK_PAUSE));
 
     printf("\n");
 
