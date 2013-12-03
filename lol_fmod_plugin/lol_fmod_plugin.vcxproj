@@ -98,6 +98,9 @@
       <AdditionalLibraryDirectories>$(SolutionDir)out\celt61\$(Platform)\$(Configuration)\</AdditionalLibraryDirectories>
       <DelayLoadDLLs>fmodex.dll;fmodexL.dll</DelayLoadDLLs>
     </Link>
+    <PostBuildEvent>
+      <Command>copy $(SolutionDir)out\celt61\$(Platform)\$(Configuration)\*.lib $(SolutionDir)out\$(ProjectName)\$(Platform)\$(Configuration)\</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -137,6 +140,9 @@
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalLibraryDirectories>$(SolutionDir)out\celt61\$(Platform)\$(Configuration)\</AdditionalLibraryDirectories>
     </Link>
+    <PostBuildEvent>
+      <Command>copy $(SolutionDir)out\celt61\$(Platform)\$(Configuration)\*.lib $(SolutionDir)out\$(ProjectName)\$(Platform)\$(Configuration)\</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
