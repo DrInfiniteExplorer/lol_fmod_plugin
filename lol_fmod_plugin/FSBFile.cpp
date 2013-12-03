@@ -35,7 +35,7 @@ FSBFile::FSBFile(FMOD_CODEC_STATE* codec)
             codec->fileread(codec->filehandle, &stuff, 4, &bytesRead, nullptr);
             totalRead += bytesRead;
             FSBenforce(bytesRead == extra, "Bad read when reading extra stuff");
-            FSBenforce(stuff == 0x80000009, "Bad extra-data-verifying type of stuff. Uhm yeah.");
+            //FSBenforce(stuff == 0x80000009, "Bad extra-data-verifying type of stuff. Uhm yeah.");
         }
 
         FSBenforce(sampleHeader.mode & FSOUND_OGG, "Non-ogg/celt file detected!");
@@ -154,7 +154,6 @@ FMOD_RESULT FSBFile::read(void *buffer, unsigned int size, unsigned int *read) {
             auto err = celt_decode(celtDec, bufferPtr, packetLength, outBufferPos);
             FSBenforce(!err, "Some error during the decoding!");
             *read += (unsigned int)(samplesPerFrame * sizeof(short));
-            decodeAvailable -= samplesPerFrame;
             samplesToRead -= samplesPerFrame;
             outBufferPos += samplesPerFrame;
         }

@@ -45,7 +45,7 @@ FMOD_RESULT F_CALLBACK FSBOpen(FMOD_CODEC_STATE *codec, FMOD_MODE usermode, FMOD
     }
     //catch (const std::runtime_error& error) {
     catch (const FSBException& error) {
-            //std::cout << "Exception caught:" << std::endl;
+        //std::cout << "Exception caught:" << std::endl;
         //std::cout << "   " << error.what() << std::endl;
         error.what();
         delete file;

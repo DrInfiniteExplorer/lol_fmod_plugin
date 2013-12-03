@@ -69,7 +69,8 @@ int main(int argc, char *argv[])
     try {
         //auto soundPath = "LoL_SFX_nasus_base.fsb";
         //auto soundPath = "LoL_SFX_ziggs.fsb";
-        auto soundPath = "VOBank_en_US.fsb";        
+        //auto soundPath = "VOBank_en_US.fsb";        
+        auto soundPath = "LoL_SFX_lux.fsb";
         result = system->createSound(soundPath, mode, nullptr, &sound);
         //result = system->createStream(soundPath, mode, nullptr, &sound);
         ERRCHECK(result);
