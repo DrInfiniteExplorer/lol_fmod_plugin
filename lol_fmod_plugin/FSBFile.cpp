@@ -52,7 +52,6 @@ FSBFile::FSBFile(FMOD_CODEC_STATE* codec)
     codec->waveformat = nullptr;
 }
 
-
 void FSBFile::dispose() {
     // Close crap!
     endDecodeSound();
@@ -147,6 +146,17 @@ FMOD_RESULT FSBFile::read(void *buffer, unsigned int size, unsigned int *read) {
             decodeAvailable -= toRead;
             samplesToRead -= toRead;
             outBufferPos += toRead;
+        }
+        else if (samplesToRead >= samplesPerFrame) { // Read directly to target if possible.
+            readFrame();
+            unsigned char* bufferPtr = (unsigned char*)packetBuffer.data();
+
+            auto err = celt_decode(celtDec, bufferPtr, packetLength, outBufferPos);
+            FSBenforce(!err, "Some error during the decoding!");
+            *read += (unsigned int)(samplesPerFrame * sizeof(short));
+            decodeAvailable -= samplesPerFrame;
+            samplesToRead -= samplesPerFrame;
+            outBufferPos += samplesPerFrame;
         }
         else {
             readFrame();
