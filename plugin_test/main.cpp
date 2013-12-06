@@ -69,8 +69,8 @@ int main(int argc, char *argv[])
     try {
         //auto soundPath = "LoL_SFX_nasus_base.fsb";
         //auto soundPath = "LoL_SFX_ziggs.fsb";
-        //auto soundPath = "VOBank_en_US.fsb";        
-        auto soundPath = "LoL_SFX_lux.fsb";
+        auto soundPath = "VOBank_en_US.fsb";        
+        //auto soundPath = "LoL_SFX_lux.fsb";
         result = system->createSound(soundPath, mode, nullptr, &sound);
         //result = system->createStream(soundPath, mode, nullptr, &sound);
         ERRCHECK(result);
@@ -96,7 +96,8 @@ int main(int argc, char *argv[])
             std::cout << name;
         }
 
-        soundNum = min(numsubsounds / 2, 1070);
+        soundNum = min(numsubsounds / 2, 1260);
+        soundNum = 6300;
         result = sound->getSubSound(soundNum, &subsound);
         ERRCHECK(result);
         result = subsound->getName(name, 256);
@@ -153,11 +154,17 @@ int main(int argc, char *argv[])
 
             printf("\rTime %02d:%02d:%02d/%02d:%02d:%02d : %s", ms / 1000 / 60, ms / 1000 % 60, ms / 10 % 100, lenms / 1000 / 60, lenms / 1000 % 60, lenms / 10 % 100, paused ? "Paused " : playing ? "Playing" : "Stopped\n");
 
+            const std::string asd("Interactive3DClearNeutralCamp");
             if (!playing) {
-                result = sound->getSubSound(soundNum++, &subsound);
-                ERRCHECK(result);
-                result = subsound->getName(name, 256);
-                ERRCHECK(result);
+
+                do {
+                    std::cout << soundNum << "\r";
+                    result = sound->getSubSound(soundNum++, &subsound);
+                    ERRCHECK(result);
+                    result = subsound->getName(name, 256);
+                    ERRCHECK(result);
+                } while (asd != name);
+                printf("\n");
                 std::cout << name << std::endl;
                 result = system->playSound(FMOD_CHANNEL_FREE, subsound, 0, &channel);
             }

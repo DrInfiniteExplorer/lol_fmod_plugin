@@ -15,6 +15,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "plugin_test", "plugin_test\
 		{A438FA41-61FA-40BE-89F1-4B443A73A4C1} = {A438FA41-61FA-40BE-89F1-4B443A73A4C1}
 	EndProjectSection
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "unpacker", "unpacker\unpacker.vcxproj", "{45530357-D82E-4737-B2E1-6EE034FDF7FE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -47,6 +49,14 @@ Global
 		{75D416A1-4D18-4D57-8799-BABBDF407DCE}.Release|Win32.Build.0 = Release|Win32
 		{75D416A1-4D18-4D57-8799-BABBDF407DCE}.Release|x64.ActiveCfg = Release|x64
 		{75D416A1-4D18-4D57-8799-BABBDF407DCE}.Release|x64.Build.0 = Release|x64
+		{45530357-D82E-4737-B2E1-6EE034FDF7FE}.Debug|Win32.ActiveCfg = Debug|Win32
+		{45530357-D82E-4737-B2E1-6EE034FDF7FE}.Debug|Win32.Build.0 = Debug|Win32
+		{45530357-D82E-4737-B2E1-6EE034FDF7FE}.Debug|x64.ActiveCfg = Debug|x64
+		{45530357-D82E-4737-B2E1-6EE034FDF7FE}.Debug|x64.Build.0 = Debug|x64
+		{45530357-D82E-4737-B2E1-6EE034FDF7FE}.Release|Win32.ActiveCfg = Release|Win32
+		{45530357-D82E-4737-B2E1-6EE034FDF7FE}.Release|Win32.Build.0 = Release|Win32
+		{45530357-D82E-4737-B2E1-6EE034FDF7FE}.Release|x64.ActiveCfg = Release|x64
+		{45530357-D82E-4737-B2E1-6EE034FDF7FE}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

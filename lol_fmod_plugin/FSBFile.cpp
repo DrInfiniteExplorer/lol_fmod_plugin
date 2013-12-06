@@ -67,7 +67,7 @@ FMOD_RESULT FSBFile::getFormat(int index, FMOD_CODEC_WAVEFORMAT* format) {
     format->channels = header.numchannels;
     FSBenforce(header.numchannels <= 2, "Cant handle more than 2 channels");
     if (header.deffreq != 44100) {
-        //FSBenforce(header.deffreq == 44100, "Unexpected frequency encountered, investigate?");
+        FSBenforce(header.deffreq == 44100, "Unexpected frequency encountered, investigate?");
         format->frequency = 44100; // Blindly ignore for now
         //TODO: Investigate :P
     }
